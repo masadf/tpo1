@@ -6,6 +6,8 @@ import kotlin.math.sqrt
 
 object BucketSort {
     fun sort(listToSort: List<Int>): List<Int> {
+        if (listToSort.isEmpty()) return emptyList()
+        if (listToSort.any { it < 0 }) throw RuntimeException("Не поддерживаются отрицательные числа!")
         val numberOfBuckets = sqrt(listToSort.size.toDouble()).toInt()
         val buckets: ArrayList<ArrayList<Int>> = ArrayList(numberOfBuckets)
         for (i in 0 until numberOfBuckets) {
